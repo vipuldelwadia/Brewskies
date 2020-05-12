@@ -11,7 +11,6 @@
 		0108AA7D246750AB0012B2C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA7C246750AB0012B2C6 /* SceneDelegate.swift */; };
 		0108AA7F246750AB0012B2C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA7E246750AB0012B2C6 /* ContentView.swift */; };
 		0108AA81246750AE0012B2C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0108AA80246750AE0012B2C6 /* Assets.xcassets */; };
-		0108AA84246750AE0012B2C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0108AA83246750AE0012B2C6 /* Preview Assets.xcassets */; };
 		0108AA87246750AE0012B2C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0108AA85246750AE0012B2C6 /* LaunchScreen.storyboard */; };
 		0108AA92246750AE0012B2C6 /* BrewskiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA91246750AE0012B2C6 /* BrewskiesTests.swift */; };
 		0108AA9E246750EE0012B2C6 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0108AA9D246750EE0012B2C6 /* ComposableArchitecture */; };
@@ -62,7 +61,6 @@
 		0108AA7C246750AB0012B2C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0108AA7E246750AB0012B2C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0108AA80246750AE0012B2C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0108AA83246750AE0012B2C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0108AA86246750AE0012B2C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0108AA88246750AE0012B2C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0108AA8D246750AE0012B2C6 /* BrewskiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrewskiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,7 +125,6 @@
 		0108AA82246750AE0012B2C6 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				0108AA83246750AE0012B2C6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -234,7 +231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0108AA87246750AE0012B2C6 /* LaunchScreen.storyboard in Resources */,
-				0108AA84246750AE0012B2C6 /* Preview Assets.xcassets in Resources */,
 				0108AA81246750AE0012B2C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
