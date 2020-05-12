@@ -13,10 +13,7 @@
 		0108AA81246750AE0012B2C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0108AA80246750AE0012B2C6 /* Assets.xcassets */; };
 		0108AA87246750AE0012B2C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0108AA85246750AE0012B2C6 /* LaunchScreen.storyboard */; };
 		0108AA92246750AE0012B2C6 /* BrewskiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA91246750AE0012B2C6 /* BrewskiesTests.swift */; };
-		0108AA9E246750EE0012B2C6 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0108AA9D246750EE0012B2C6 /* ComposableArchitecture */; };
-		0108AA9F246750EE0012B2C6 /* ComposableArchitecture in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0108AA9D246750EE0012B2C6 /* ComposableArchitecture */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		0108AAA1246750EE0012B2C6 /* ComposableArchitectureTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 0108AAA0246750EE0012B2C6 /* ComposableArchitectureTestSupport */; };
-		0108AAA2246750EE0012B2C6 /* ComposableArchitectureTestSupport in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0108AAA0246750EE0012B2C6 /* ComposableArchitectureTestSupport */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		011CDF2F246A30BA0066D2F4 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 011CDF2E246A30BA0066D2F4 /* ComposableArchitecture */; };
 		01A0C2EF2467C5CE007CE226 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0C2EE2467C5CE007CE226 /* Data.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +34,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0108AA9F246750EE0012B2C6 /* ComposableArchitecture in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +44,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0108AAA2246750EE0012B2C6 /* ComposableArchitectureTestSupport in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0108AA9E246750EE0012B2C6 /* ComposableArchitecture in Frameworks */,
+				011CDF2F246A30BA0066D2F4 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0108AAA1246750EE0012B2C6 /* ComposableArchitectureTestSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +150,7 @@
 			);
 			name = Brewskies;
 			packageProductDependencies = (
-				0108AA9D246750EE0012B2C6 /* ComposableArchitecture */,
+				011CDF2E246A30BA0066D2F4 /* ComposableArchitecture */,
 			);
 			productName = Brewskies;
 			productReference = 0108AA77246750AB0012B2C6 /* Brewskies.app */;
@@ -178,7 +172,6 @@
 			);
 			name = BrewskiesTests;
 			packageProductDependencies = (
-				0108AAA0246750EE0012B2C6 /* ComposableArchitectureTestSupport */,
 			);
 			productName = BrewskiesTests;
 			productReference = 0108AA8D246750AE0012B2C6 /* BrewskiesTests.xctest */;
@@ -213,7 +206,7 @@
 			);
 			mainGroup = 0108AA6E246750AB0012B2C6;
 			packageReferences = (
-				0108AA9C246750EE0012B2C6 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				011CDF2D246A30BA0066D2F4 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 0108AA78246750AB0012B2C6 /* Products */;
 			projectDirPath = "";
@@ -515,26 +508,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0108AA9C246750EE0012B2C6 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		011CDF2D246A30BA0066D2F4 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
+				minimumVersion = 0.1.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0108AA9D246750EE0012B2C6 /* ComposableArchitecture */ = {
+		011CDF2E246A30BA0066D2F4 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0108AA9C246750EE0012B2C6 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 011CDF2D246A30BA0066D2F4 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
-		};
-		0108AAA0246750EE0012B2C6 /* ComposableArchitectureTestSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0108AA9C246750EE0012B2C6 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitectureTestSupport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
