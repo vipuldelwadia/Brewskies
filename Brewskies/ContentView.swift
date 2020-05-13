@@ -13,16 +13,25 @@ struct Brew: Equatable, Identifiable {
     var description = ""
     var isRunning: Bool?
     var date: Date?
-    var dose: String?
+    var dose: Double?
     var elapsed = 0.0
-    var yield: String?
+    var yield: Double?
 
     let id: UUID
+}
+
+extension Double {
+    var formattedWeight: String? {
+        return weightFormatter.string(from: NSNumber(value: self))
+    }
 }
 
 enum BrewAction {
     case playPauseTapped
     case timerUpdated(TimeInterval)
+    case descriptionFieldChanged(text: String)
+    case doseFieldChanged(text: String)
+    case yieldFieldChanged(text: String)
 }
 
 struct BrewEnvironment {
@@ -57,8 +66,20 @@ let brewReducer = Reducer<Brew, BrewAction, BrewEnvironment> { brew, action, env
     case .timerUpdated(let time):
         brew.elapsed = time
         return .none
+
+    case .descriptionFieldChanged(let text):
+        brew.description = text
+        return .none
+
+    case .doseFieldChanged(let text):
+        brew.dose = weightFormatter.number(from: text)?.doubleValue
+        return .none
+
+    case .yieldFieldChanged(let text):
+        brew.yield = weightFormatter.number(from: text)?.doubleValue
+        return .none
     }
-}
+}.debug()
 
 struct AppState: Equatable {
     var brews: [Brew] = []
@@ -103,7 +124,8 @@ struct ContentView: View {
                     ) {
                         ForEachStore(
                             self.store.scope(
-                                state: \.activeBrews, action: AppAction.brew(index:action:)
+                                state: \.activeBrews,
+                                action: AppAction.brew(index:action:)
                             ),
                             id: \.id,
                             content: CurrentBrewView.init(store:)
@@ -115,7 +137,8 @@ struct ContentView: View {
                     ) {
                         ForEachStore(
                             self.store.scope(
-                                state: \.previousBrews, action: AppAction.brew(index:action:)
+                                state: \.previousBrews,
+                                action: AppAction.brew(index:action:)
                             ),
                             id: \.id,
                             content: PreviousBrewView.init(store:)
@@ -137,29 +160,65 @@ struct CurrentBrewView: View {
     }
 
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(alignment: .bottom, spacing: 16) {
             VStack {
                 Button(action: { self.viewStore.send(.playPauseTapped) }) {
                     Image(uiImage: UIImage(systemName: self.viewStore.isRunning ?? false ? "pause.fill" : "play.fill")!.withRenderingMode(.alwaysTemplate))
                         .foregroundColor(self.viewStore.isRunning ?? false ? .green : .blue)
-//                        .padding()
-                    //                .overlay(Circle().stroke(self.viewStore.isRunning ?? false ? Color.green : Color.blue, lineWidth: 4))
-                    Text(String(format: "%.2f s", viewStore.elapsed))
+                        .padding()
+//                        .overlay(Circle().stroke(self.viewStore.isRunning ?? false ? Color.green : Color.blue, lineWidth: 4))
                 }
                 .buttonStyle(PlainButtonStyle())
 
+                Text(String(format: "%.2f s", viewStore.elapsed))
+            }
+
+            Divider()
+
+            VStack(alignment: .leading, spacing: 8) {
+                TextField(
+                    "Description",
+                    text: viewStore.binding(
+                        get: { $0.description },
+                        send: { .descriptionFieldChanged(text: $0) }
+                    )
+                )
+
+                HStack {
+                    TextField(
+                        "Dose",
+                        text: viewStore.binding(
+                            get: { $0.dose?.formattedWeight ?? "" },
+                            send: { .doseFieldChanged(text: $0) }
+                        )
+                    )
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.decimalPad)
+                        .multilineTextAlignment(.trailing)
+
+                    Text("g")
+                        .foregroundColor(.secondary)
+
+                    Image(systemName: "arrow.right")
+
+                    TextField(
+                        "Yield",
+                        text: viewStore.binding(
+                            get : { $0.yield?.formattedWeight ?? "" },
+                            send: { .yieldFieldChanged(text: $0) }
+                        )
+                    )
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.decimalPad)
+                        .multilineTextAlignment(.trailing)
+                    Text("g")
+                        .foregroundColor(.secondary)
+                }
             }
             .padding(4)
-
-
-//            Spacer()
-
-            Text(viewStore.description)
-
-//            Spacer()
-
         }
-        .font(Font.system(size: 17).monospacedDigit())
+
+        .font(Font.system(size: 22).monospacedDigit())
     }
 }
 
@@ -184,7 +243,7 @@ struct PreviousBrewView: View {
             Spacer()
             VStack(alignment: .trailing) {
                 viewStore.date.map {
-                    Text(relativeFormatter.localizedString(for: $0, relativeTo: Date()))
+                    Text($0.previousFormat)
                         .foregroundColor(.secondary)
                         .font(.footnote)
                 }
@@ -194,19 +253,28 @@ struct PreviousBrewView: View {
                             .foregroundColor(.secondary)
                             .font(.footnote)
                             .italic()
-                        Text(viewStore.dose ?? "…")
-                            .font(Font.body.monospacedDigit())
+                        viewStore.dose?.formattedWeight.map {
+                            Text($0)
+                                .font(Font.body.monospacedDigit())
+                        }
+                        Text("g")
+                            .foregroundColor(.secondary)
 
                     }
+
                     Image(systemName: "arrow.right")
-                        .foregroundColor(.secondary)
+
                     HStack(spacing: 4) {
                         Text("y")
                             .foregroundColor(.secondary)
                             .font(.footnote)
                             .italic()
-                        Text(viewStore.yield ?? "…")
-                            .font(Font.body.monospacedDigit())
+                        viewStore.yield?.formattedWeight.map {
+                            Text($0)
+                                .font(Font.body.monospacedDigit())
+                        }
+                        Text("g")
+                            .foregroundColor(.secondary)
                     }
                 }
             }
@@ -236,3 +304,24 @@ let relativeFormatter: RelativeDateTimeFormatter = {
     return formatter
 }()
 
+let timeFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .none
+    formatter.timeStyle = .short
+    return formatter
+}()
+
+extension Date {
+    var previousFormat: String {
+        relativeFormatter.localizedString(for: self, relativeTo: Date()) +
+        ", " +
+        timeFormatter.string(from: self)
+    }
+}
+
+let weightFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.maximumFractionDigits = 1
+    return formatter
+}()

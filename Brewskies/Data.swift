@@ -11,43 +11,39 @@ import Foundation
 enum Data {
     static var brews = [
         Brew(
-            description: "Havana",
+            description: "",
             isRunning: true,
             date: isoDateFormatter.date(from: "2020-05-10T17:00:00+1200"),
-            dose: "18.2 g",
-//            elapsed: 13.2,
             id: UUID()
         ),
         Brew(
             description: "Havana",
             isRunning: false,
             date: isoDateFormatter.date(from: "2020-05-10T11:00:00+1200"),
-            dose: "18.1 g",
-//            elapsed: 28.3,
             id: UUID()
         ),
         Brew(
             description: "Havana",
             date: isoDateFormatter.date(from: "2020-05-10T08:00:00+1200"),
-            dose: "18.2 g",
+            dose: 18.2,
             elapsed: 25.22,
-            yield: "54.6 g",
+            yield: 54.6,
             id: UUID()
         ),
         Brew(
             description: "Havana",
             date: isoDateFormatter.date(from: "2020-05-09T17:00:00+1200"),
-            dose: "18.3 g",
+            dose: 18.3,
             elapsed: 18.15,
-            yield: "57.1 g",
+            yield: 57.1,
             id: UUID()
         ),
         Brew(
             description: "Bomber",
             date: isoDateFormatter.date(from: "2020-05-08T08:00:00+1200"),
-            dose: "18.1 g",
+            dose: 18.1,
             elapsed: 23.4,
-            yield: "55.8 g",
+            yield: 55.8,
             id: UUID()
         )
     ]
