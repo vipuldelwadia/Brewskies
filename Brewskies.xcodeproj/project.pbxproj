@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		0108AA7B246750AB0012B2C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA7A246750AB0012B2C6 /* AppDelegate.swift */; };
 		0108AA7D246750AB0012B2C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA7C246750AB0012B2C6 /* SceneDelegate.swift */; };
-		0108AA7F246750AB0012B2C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA7E246750AB0012B2C6 /* ContentView.swift */; };
+		0108AA7F246750AB0012B2C6 /* Brewskies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA7E246750AB0012B2C6 /* Brewskies.swift */; };
 		0108AA81246750AE0012B2C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0108AA80246750AE0012B2C6 /* Assets.xcassets */; };
 		0108AA87246750AE0012B2C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0108AA85246750AE0012B2C6 /* LaunchScreen.storyboard */; };
 		0108AA92246750AE0012B2C6 /* BrewskiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108AA91246750AE0012B2C6 /* BrewskiesTests.swift */; };
 		011CDF2F246A30BA0066D2F4 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 011CDF2E246A30BA0066D2F4 /* ComposableArchitecture */; };
-		01A0C2EF2467C5CE007CE226 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0C2EE2467C5CE007CE226 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,14 +53,13 @@
 		0108AA77246750AB0012B2C6 /* Brewskies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brewskies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0108AA7A246750AB0012B2C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0108AA7C246750AB0012B2C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0108AA7E246750AB0012B2C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0108AA7E246750AB0012B2C6 /* Brewskies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brewskies.swift; sourceTree = "<group>"; };
 		0108AA80246750AE0012B2C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0108AA86246750AE0012B2C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0108AA88246750AE0012B2C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0108AA8D246750AE0012B2C6 /* BrewskiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrewskiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0108AA91246750AE0012B2C6 /* BrewskiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewskiesTests.swift; sourceTree = "<group>"; };
 		0108AA93246750AE0012B2C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01A0C2EE2467C5CE007CE226 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +104,11 @@
 			children = (
 				0108AA7A246750AB0012B2C6 /* AppDelegate.swift */,
 				0108AA7C246750AB0012B2C6 /* SceneDelegate.swift */,
-				0108AA7E246750AB0012B2C6 /* ContentView.swift */,
+				0108AA7E246750AB0012B2C6 /* Brewskies.swift */,
 				0108AA80246750AE0012B2C6 /* Assets.xcassets */,
 				0108AA85246750AE0012B2C6 /* LaunchScreen.storyboard */,
 				0108AA88246750AE0012B2C6 /* Info.plist */,
 				0108AA82246750AE0012B2C6 /* Preview Content */,
-				01A0C2EE2467C5CE007CE226 /* Data.swift */,
 			);
 			path = Brewskies;
 			sourceTree = "<group>";
@@ -244,8 +241,7 @@
 			files = (
 				0108AA7B246750AB0012B2C6 /* AppDelegate.swift in Sources */,
 				0108AA7D246750AB0012B2C6 /* SceneDelegate.swift in Sources */,
-				0108AA7F246750AB0012B2C6 /* ContentView.swift in Sources */,
-				01A0C2EF2467C5CE007CE226 /* Data.swift in Sources */,
+				0108AA7F246750AB0012B2C6 /* Brewskies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +401,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nz.ac.r.Brewskies;
+				PRODUCT_BUNDLE_IDENTIFIER = nz.ac.r.Brewskies2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -424,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nz.ac.r.Brewskies;
+				PRODUCT_BUNDLE_IDENTIFIER = nz.ac.r.Brewskies2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
